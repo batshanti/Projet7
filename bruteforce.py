@@ -65,17 +65,15 @@ def calculate_gain(combi):
 
 def display(invest_list):
     actions_name = []
-    profit = []
     cost = []
     
     for action in invest_list:
         actions_name.append(action[0])
         cost.append(action[1])
-        profit.append(action[2])
 
     print("List actions boughts : " + str(actions_name))
     print("Cost : " + str(sum(cost)) + " Euros")
-    print("Profit : " + str(sum(profit)) + " Euros\n")
+    print("Profit : " + str(calculate_gain(invest_list)) + " Euros\n")
 
 if __name__ == "__main__":
     main()
