@@ -36,15 +36,15 @@ def invest_dynamique(file_list, inv_max):
                 matrice[i][w] = matrice[i-1][w]
 
     actions_selection = []
-    nb_element = len(file_list)
+    nb_actions = len(file_list)
 
-    while inv_max >= 0 and nb_element >= 0:
-        action = file_list[nb_element-1]
+    while inv_max >= 0 and nb_actions >= 0:
+        action = file_list[nb_actions-1]
 
-        if matrice[nb_element][inv_max] == matrice[nb_element-1][inv_max-int(action[1])] + int(action[2]):
+        if matrice[nb_actions][inv_max] == matrice[nb_actions-1][inv_max-int(action[1])] + int(action[2]):
             actions_selection.append(action)
             inv_max -= int(action[1])
-        nb_element -= 1
+        nb_actions -= 1
 
       
     print(list(reversed(actions_selection)))
