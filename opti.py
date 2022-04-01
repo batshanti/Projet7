@@ -8,8 +8,8 @@ MAX = 500
 
 def main():
     file_list = load_csv()
-    invest_dynamique(file_list, MAX)
-
+    invest_list = invest_dynamique(file_list, MAX)
+    display(invest_list)
 
 def load_csv():
     with open("invest.csv") as csvfile:
@@ -47,7 +47,31 @@ def invest_dynamique(file_list, inv_max):
         nb_actions -= 1
 
       
-    print(list(reversed(actions_selection)))
+    return list(reversed(actions_selection))
+
+
+def calculate_gain(invest_list):
+    gain = []
+
+    for line in invest_list:
+        gain.append(line[1] * line[2] / 100)
+
+    total_gain = sum(gain)
+    return total_gain
+
+
+def display(invest_list):
+    actions_name = []
+    cost = []
+    
+    for action in invest_list:
+        actions_name.append(action[0])
+        cost.append(action[1])
+
+    print("List actions boughts : " + str(actions_name))
+    print("Cost : " + str(sum(cost)) + " Euros")
+    print("Profit : " + str(calculate_gain(invest_list)) + " Euros\n")
+
 
 
 if __name__ == "__main__":
