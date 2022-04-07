@@ -4,7 +4,6 @@ import csv
 import time
 
 
-
 MAX = 500
 
 def main():
@@ -12,8 +11,14 @@ def main():
     best_invest_list = actions_combo(file_list)
     display(best_invest_list)
 
-
 def load_csv():
+    """Open csv file and return list
+    
+    Return
+    ------
+    list
+        list of actions
+    """
     with open("invest.csv") as csvfile:
         file = csv.reader(csvfile, delimiter=',')
         file_list = []
@@ -22,9 +27,19 @@ def load_csv():
 
         return file_list
 
-
 def actions_combo(list):
-
+    """Test all conbinations and find the best
+    
+    Parameters
+    ----------
+    list : list
+    list of actions    
+    
+    Return
+    ------
+    list
+        best invest list
+    """
     best_invest_list = []
     total_gain = 0
 
@@ -43,8 +58,20 @@ def actions_combo(list):
 
     return best_invest_list 
 
-
 def calculate_invest(combi):
+    """Calculate invest total price with list of actions
+    
+    Parameters
+    ----------
+    list : list
+    list of actions
+    
+    Return
+    ------
+    float
+        total invest
+        
+    """
     cost_actions = []
     
     for price in combi:
@@ -55,6 +82,19 @@ def calculate_invest(combi):
 
 
 def calculate_gain(combi):
+    """Calculate gain with list of actions
+    
+    Parameters
+    ----------
+    list : list
+    list of actions
+    
+    Return
+    ------
+    float
+        gain
+        
+    """
     gain = []
 
     for line in combi:
@@ -62,6 +102,7 @@ def calculate_gain(combi):
 
     total_gain = sum(gain)
     return total_gain
+
 
 def display(invest_list):
     actions_name = []
