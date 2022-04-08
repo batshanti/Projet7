@@ -1,6 +1,7 @@
 import csv
 import time
 
+start = time.time()
 
 MAX = 500
 
@@ -53,7 +54,7 @@ def invest_dynamique(file_list, inv_max):
             actions_selection.append(file_list[nb_actions-1])
             inv_max -= cost[nb_actions-1]
         nb_actions -= 1
- 
+    print(actions_selection)
     return list(reversed(actions_selection))
 
 def display(invest_list):
@@ -68,7 +69,8 @@ def display(invest_list):
 
     print("List actions boughts : " + str(actions_name))
     print("Cost : " + str(sum(cost)) + " Euros")
-    print("Profit : " + str(sum(gain)) + " Euros\n")
+    print("Profit : " + str(sum(gain)) + " Euros")
+    print("Script Time : " + str(time.time() - start))
 
 
 if __name__ == "__main__":

@@ -3,6 +3,7 @@ from itertools import combinations
 import csv
 import time
 
+start = time.time()
 
 MAX = 500
 
@@ -114,7 +115,8 @@ def display(invest_list):
 
     print("List actions boughts : " + str(actions_name))
     print("Cost : " + str(sum(cost)) + " Euros")
-    print("Profit : " + str(calculate_gain(invest_list)) + " Euros\n")
+    print("Profit : " + str(calculate_gain(invest_list)) + " Euros")
+    print("Script Time : " + str(time.time() - start))
 
 if __name__ == "__main__":
     main()
