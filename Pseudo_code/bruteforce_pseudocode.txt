@@ -1,0 +1,40 @@
+DEBUT
+
+MAX <- 500
+
+file_list <- liste d'action csv
+
+best_invest_list <- liste vide
+tatal_gain <- 0
+
+POUR chaque élément 'i' de 0 à longueur(file_list):
+	combination <- combinations(file_list, i + 1)
+	// combinations(iterable, r) Renvoie les combinaisons de longueur r de iterable
+
+	POUR chaque élément 'combi' dans combination:
+		tatal_price <- calculate_invest(combi)
+		// fonction 'calculate_invest' Renvoi la somme du cout total d'une liste d'actions
+
+		SI tatal_price <= MAX:
+			gain <- calculate_gain()
+			// fonction 'calculate_gain' Renvoi la somme total des profis d'une liste d'actions
+
+			SI gain > total_gain:
+				total_gain <- gain
+				best_invest_list <- combi
+
+RETOURNE best_invest_list					
+
+actions_name <- liste vide
+cost <- liste vide
+
+POUR chaque élément 'action' dnas best_invest_list:
+	action_name.ajoute(action[0])
+	cost.ajoute(action[1])
+
+AFFICHE action_names
+AFFICHE somme de toutes les actions de cost
+AFFICHE calculate_gain(best_invest_list)
+// 	fonction 'calculate_gain' Renvoi la somme total des profis d'une liste d'actions
+
+FIN

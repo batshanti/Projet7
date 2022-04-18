@@ -7,7 +7,7 @@ Ce projet contient deux script python visant à maximiser le profit réalisé pa
 * Dépense maximum par client : 500 euros.
 
 Le script **bruteforce.py** fournit un algorithme de force brute qui va tester toutes les combinaisons possible d’investissement. 
-Le script **optimized.py**  est une optimisation du premier script visant réduire le temps d’exécution du programme. Il repose sur un algorithme appelé **Algorithme glouton**.
+Le script **optimized.py**  est une optimisation du premier script visant à réduire le temps d’exécution du programme. Il repose sur un algorithme appelé **Algorithme glouton**.
 
 Nous avons à notre disposition plusieurs jeux de données :
 **invest.csv** contenant 20 actions.

@@ -1,0 +1,47 @@
+DEBUT
+
+MAX <- 500
+
+dataset <- choose_dataset()
+// fonction 'choose_dataset' Choisir un jeu de donnée (invest.csv, dataset1.csv, dataset2.csv)
+
+file_list <- load_csv(dataset)
+// fonction load_csv() Renvoi une liste d'action issue du dataset. On ajoute uniquement
+les actions qui ont un cout et un profit supérieure ou égal à zéro.  
+la liste contient [Nom de l'action, prix, profit]
+
+sort_list <- sorted_actions(file_list)
+// fonction sorted_actions. Trie la liste des actions de file_list par profit décroissant 
+
+best_invest <- liste vide
+total_cost <- 0
+i <- 0
+
+TANT_QUE i < longueur(sorted_list) ET total_cost <= MAX:
+	action <- sorted_list[i]
+	action_cost <- action[i]
+
+	SI total_cost + action_cost <= MAX:
+		best_invest.ajoute(action)
+		total_cost = total_cost + action_cost
+	i++
+
+RETOURNE best_invest
+
+actions_name <- liste vide
+cost <- liste vide
+gain <- liste vide
+
+POUR chaque élément 'action' dans best_invest:
+	actions_name.ajoute(action[0])
+	cost.ajoute(action[1])
+	gain.ajoute(action[1] * action[2] / 100)
+
+AFFICHE actions_name
+AFFICHE sum(gain)
+AFFICHE sum(profit)
+
+FIN	
+
+
+
