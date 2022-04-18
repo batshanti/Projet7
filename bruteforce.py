@@ -18,7 +18,7 @@ def load_csv():
     Return
     ------
     list
-        list of actions
+        list of shares
     """
     with open("invest.csv") as csvfile:
         file = csv.reader(csvfile, delimiter=',')
@@ -60,12 +60,12 @@ def actions_combo(list):
     return best_invest_list 
 
 def calculate_invest(combi):
-    """Calculate invest total price with list of actions
+    """Calculate invest total price with list of shares
     
     Parameters
     ----------
     list : list
-    list of actions
+    list of shares
     
     Return
     ------
@@ -83,12 +83,12 @@ def calculate_invest(combi):
 
 
 def calculate_gain(combi):
-    """Calculate gain with list of actions
+    """Calculate gain with list of shares
     
     Parameters
     ----------
     list : list
-    list of actions
+    list of shares
     
     Return
     ------
@@ -106,6 +106,13 @@ def calculate_gain(combi):
 
 
 def display(invest_list):
+    """Display best invest liste, total cost, total profit and running time.
+    
+    parameters
+    ----------
+    invest_list : list
+
+    """
     actions_name = []
     cost = []
     

@@ -21,6 +21,14 @@ def main():
     display(invest_list)
 
 def choose_dataset():
+    """Display menu to choose dataset.
+
+    Return
+    -------
+    String
+        Dataset choice
+
+    """
     choices = {
         "1" : "invest.csv",
         "2" : "dataset1.csv",
@@ -33,6 +41,19 @@ def choose_dataset():
     return choices[choice]
 
 def load_csv(dataset):
+    """Open csv file, removes shares that have cost or benefit equal or less zero.
+        Return list of shares.
+
+    Parameters
+    ----------
+    dataset : string
+
+    Returns
+    -------
+    List
+        list of shares
+
+    """
     with open(dataset) as csvfile:
         file = csv.reader(csvfile, delimiter=',')
         file_list = []
@@ -45,10 +66,36 @@ def load_csv(dataset):
         return file_list
 
 def sorted_actions(invest_list):
+    """Sort by profit in descending order.
+
+    Parameters
+    ----------
+    invest_list : list
+
+    Returns
+    -------
+    list
+        list of shares
+
+    """
     return sorted(invest_list, key=lambda action: action[2], reverse=True)
 
 
 def find_invest(invest_list, max):
+    """Use a sorted list to buy the most profitable shares and respect the 500 euro limit.
+    
+    Parameters
+    ----------
+    invest_list : list
+    max : int
+    max invest
+    
+    Returns
+    -------
+    list
+        Return best invest list
+
+    """
     best_invest = []
     total_cost = 0
     i = 0
@@ -64,6 +111,13 @@ def find_invest(invest_list, max):
     return best_invest
 
 def display(invest_list):
+    """Display best invest liste, total cost, total profit and running time.
+
+    parameters
+    ----------
+    invest_list : list    
+
+    """
     actions_name = []
     cost = []
     gain = []
