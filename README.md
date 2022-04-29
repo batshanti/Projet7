@@ -19,17 +19,6 @@ Nous avons à notre disposition plusieurs jeux de données :
  git clone https://github.com/batshanti/Projet7.git
  cd Projet7/
 ```
-#### Créer un environnement virtuel et l'activer :
-(Linux or Mac)
-```
- python3 -m venv venv
- source venv/bin/activate
-```
-(Windows)
-```
- py -m venv venv
- env/bin/activate.bat
-```
 #### Installations des packages :
 
 Les scripts n'utilisent aucune bibliothèques externes.  
